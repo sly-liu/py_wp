@@ -10,8 +10,8 @@ headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/201
 
 def get_profile(name, no, dno):
 	
-	if not os.path.exists("./" + name):
-		os.mkdir("./" + name)
+	if not os.path.exists("./images/" + name):
+		os.mkdir("./images/" + name)
 
 	dh = ['name', 'sex', 'state', 'birth', 'bio', 'quote', 'wallpaper','poster', 'postert', 'still', 'stillt', 'gif', 'gift', 'create_time']
 	di = {'name': name}
@@ -27,7 +27,7 @@ def get_profile(name, no, dno):
 	di['sex'] = 'Actor' if(sex[-1]=="男") else 'Actress'
 	try:
 		r = requests.get(img, timeout=5)
-		with open('./' + name + '/' + 'thumbnail.jpg', 'wb') as jpg:
+		with open('./images/' + name + '/' + 'thumbnail.jpg', 'wb') as jpg:
 			jpg.write(r.content)
 	except Exception as e:
 		print(e)

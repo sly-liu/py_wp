@@ -14,10 +14,10 @@ def get_gif(name):
 	gift = ''
 
 	if not os.path.exists('./'+name):
-		os.mkdir('./'+name)
+		os.mkdir('./images/'+name)
 
 	if not os.path.exists('./'+name+'/gif'):
-		os.mkdir('./'+name+'/gif')
+		os.mkdir('./images/'+name+'/gif')
 
 	response = requests.get(url)
 	data = response.json()
@@ -36,17 +36,17 @@ def get_gif(name):
 			print(e)
 			continue
 		
-		with open('./'+name+'/gif/gif_' + str(index) + ".gif", 'wb') as gif:
+		with open('./images/'+name+'/gif/gif_' + str(index) + ".gif", 'wb') as gif:
 			print("正在抓取第%s条数据" % index)
 			gif.write(r.content)
 			#index += 1
 
-		with open('./'+name+'/gif/m_' + str(index) + ".mp4", 'wb') as mp4:
+		with open('./images/'+name+'/gif/m_' + str(index) + ".mp4", 'wb') as mp4:
 			print("正在抓取第%s条数据" % index)
 			mp4.write(r1.content)
 			#index += 1
 
-		with open('./'+name+'/gif/s' + str(index) + ".mp4", 'wb') as smp4:
+		with open('./images/'+name+'/gif/s' + str(index) + ".mp4", 'wb') as smp4:
 			print("正在抓取第%s条数据" % index)
 			smp4.write(r2.content)
 			index += 1

@@ -15,8 +15,8 @@ def get_images(name, no):
 	global page
 	
 	print("第"+str(page+1)+"页")
-	if not os.path.exists("./" + name + '/wallpaper'):
-		os.mkdir("./" + name + '/wallpaper')
+	if not os.path.exists("./images/" + name + '/wallpaper'):
+		os.mkdir("./images/" + name + '/wallpaper')
 
 	url = 'https://movie.douban.com/celebrity/'+no+'/photos/?type=C&start='+str(page*30)+'&sortby=like&size=a&subtype=a' 
 	html = BeautifulSoup(requests.get(url, headers=headers).text, features="html.parser")
@@ -30,7 +30,7 @@ def get_images(name, no):
 			print(e)
 			continue
 		
-		with open('./' + name + '/wallpaper/p_' + str(index) + ".jpg", 'wb') as jpg:
+		with open('./images/' + name + '/wallpaper/p_' + str(index) + ".jpg", 'wb') as jpg:
 			print("正在抓取第%s条数据" % index)
 			index += 1
 	page += 1

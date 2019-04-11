@@ -18,8 +18,8 @@ def get_images(name, no, type):
 	global index
 	global ptitle
 
-	if not os.path.exists("./" + name + '/' + type):
-		os.makedirs("./" + name + '/' + type)
+	if not os.path.exists("./images/" + name + '/' + type):
+		os.makedirs("./images/" + name + '/' + type)
 
 	url = 'https://www.imdb.com/name/'+no+'/mediaindex?refine=poster&ref_=nmmi_ref_pos' 
 	html = BeautifulSoup(requests.get(url, headers=headers).text, features="html.parser")
@@ -41,7 +41,7 @@ def get_images(name, no, type):
 			print(e)
 			continue
 		
-		with open('./' + name + '/' + type + '/' + str(index) + ".jpg", 'wb') as jpg:
+		with open('./images/' + name + '/' + type + '/' + str(index) + ".jpg", 'wb') as jpg:
 			print("正在抓取第%s条数据" % index)
 			jpg.write(r.content)
 			ptitle += txt+'|'
