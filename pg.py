@@ -13,10 +13,10 @@ def get_gif(name):
 	index = 0
 	gift = ''
 
-	if not os.path.exists('./'+name):
+	if not os.path.exists('./images/'+name):
 		os.mkdir('./images/'+name)
 
-	if not os.path.exists('./'+name+'/gif'):
+	if not os.path.exists('./images/'+name+'/gif'):
 		os.mkdir('./images/'+name+'/gif')
 
 	response = requests.get(url)
@@ -56,4 +56,4 @@ def get_gif(name):
 		data.tail(1)[u'gift'] = gift
 		data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
 
-get_gif('Sandra Bullock')
+get_gif('Leonardo DiCaprio')

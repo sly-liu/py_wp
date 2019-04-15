@@ -53,5 +53,5 @@ def get_images(name, no, type):
 	print(data.tail(1)[type])
 	data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
 
-#get_images('Jason Statham', 'nm0005458', 'poster')
-get_images('Jason Statham', 'nm0005458', 'still')
+get_images('Leonardo DiCaprio', 'nm0000138', 'poster')
+#get_images('Leonardo DiCaprio', 'nm0000138', 'still')

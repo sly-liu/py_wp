@@ -55,7 +55,7 @@ def get_profile(name, no, dno):
 
 	with open('star.csv', 'a', encoding='utf-8', newline='') as f:
 		writer = csv.DictWriter(f, dh)
-		writer.writeheader()
+		#writer.writeheader()
 		writer.writerow(di)
 
 get_profile('Leonardo DiCaprio', 'nm0000138', '1041029')
