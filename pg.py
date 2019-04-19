@@ -9,9 +9,12 @@ import json
 
 def get_gif(name):
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
-	url = 'http://api.giphy.com/v1/gifs/search?q='+name.replace(' ','-')+'&api_key=Gn6L4EOc0zrGNso2WcmRwipSPa3OWKX0&limit=15';
+	url = 'http://api.giphy.com/v1/gifs/search?q='+name.replace(' ','-')+'&api_key=Gn6L4EOc0zrGNso2WcmRwipSPa3OWKX0';
 	index = 0
 	gift = ''
+
+	if index >= 15:
+		return
 
 	if not os.path.exists('./images/'+name):
 		os.mkdir('./images/'+name)
@@ -51,9 +54,10 @@ def get_gif(name):
 			smp4.write(r2.content)
 			index += 1
 
-		data = pd.read_csv('star.csv', encoding='utf-8')
-		data.tail(1)[u'gif'] = str(index)
-		data.tail(1)[u'gift'] = gift
-		data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
+	data = pd.read_csv('star.csv', encoding='utf-8')
+	data.tail(1)[u'gif'] = str(index)
+	data.tail(1)[u'gift'] = gift
+	data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
 
-get_gif('Leonardo DiCaprio')
+#get_gif('Leonardo DiCaprio')
+get_gif('Catherine Zeta Jones')

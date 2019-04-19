@@ -58,4 +58,6 @@ def get_profile(name, no, dno):
 		#writer.writeheader()
 		writer.writerow(di)
 
-get_profile('Leonardo DiCaprio', 'nm0000138', '1041029')
+#get_profile('Leonardo DiCaprio', 'nm0000138', '1041029')
+get_profile('Catherine Zeta Jones', 'nm0001876', '1056058')
+

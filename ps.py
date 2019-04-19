@@ -21,7 +21,9 @@ def get_images(name, no, type):
 	if not os.path.exists("./images/" + name + '/' + type):
 		os.makedirs("./images/" + name + '/' + type)
 
-	url = 'https://www.imdb.com/name/'+no+'/mediaindex?refine=poster&ref_=nmmi_ref_pos' 
+	utpye = 'still_frame' if type == 'still' else 'poster'
+	print(utpye)
+	url = 'https://www.imdb.com/name/'+no+'/mediaindex?refine='+utpye
 	html = BeautifulSoup(requests.get(url, headers=headers).text, features="html.parser")
 	imgs = html.find('div', {'class', 'media_index_thumb_list'}).find_all('a')
 	for link in imgs:
@@ -53,5 +55,7 @@ def get_images(name, no, type):
 	print(data.tail(1)[type])
 	data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
 
-get_images('Leonardo DiCaprio', 'nm0000138', 'poster')
+#get_images('Leonardo DiCaprio', 'nm0000138', 'poster')
 #get_images('Leonardo DiCaprio', 'nm0000138', 'still')
+#get_images('Evangeline Lilly', 'nm1431940', 'poster')
+get_images('Catherine Zeta Jones', 'nm0001876', 'still')

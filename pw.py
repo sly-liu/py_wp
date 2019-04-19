@@ -48,4 +48,5 @@ def iter_page(name, no, total):
 	print(data.tail(1)[u'wallpaper'])
 	data.to_csv('star.csv', header=True, index=False, encoding='utf-8')
 
-iter_page('Leonardo DiCaprio', '1041029', 3)
+#iter_page('Leonardo DiCaprio', '1041029', 3)
+iter_page('Catherine Zeta Jones', '1056058', 3)
