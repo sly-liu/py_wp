@@ -8,6 +8,7 @@ import pandas as pd
 import json
 
 def get_gif(name):
+	proxy = {'http': '27.29.44.251:9999', 'https': '112.87.64.161:9999'}
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}
 	url = 'http://api.giphy.com/v1/gifs/search?q='+name.replace(' ','-')+'&api_key=Gn6L4EOc0zrGNso2WcmRwipSPa3OWKX0';
 	index = 0
@@ -22,7 +23,7 @@ def get_gif(name):
 	if not os.path.exists('./images/'+name+'/gif'):
 		os.mkdir('./images/'+name+'/gif')
 
-	response = requests.get(url)
+	response = requests.get(url,headers=headers,proxies=proxy)
 	data = response.json()
 	for item in data['data']:
 		original_mp4 = item['images']['original_mp4']['mp4']
